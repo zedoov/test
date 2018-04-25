@@ -3,11 +3,13 @@
 #include "Application.h"
 #include "Renderer2D.h"
 
-class Test_BootstrapApp : public aie::Application {
+class Player;
+
+class bootstrapTestApp : public aie::Application {
 public:
 
-	Test_BootstrapApp();
-	virtual ~Test_BootstrapApp();
+	bootstrapTestApp();
+	virtual ~bootstrapTestApp();
 
 	virtual bool startup();
 	virtual void shutdown();
@@ -19,4 +21,5 @@ protected:
 
 	aie::Renderer2D*	m_2dRenderer;
 	aie::Font*			m_font;
+	Player*				m_player;
 };

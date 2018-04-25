@@ -1,9 +1,9 @@
 #include "Test_BootstrapApp.h"
 
 int main() {
-	
+
 	// allocation
-	auto app = new Test_BootstrapApp();
+	auto app = new bootstrapTestApp();
 
 	// initialise and loop
 	app->run("AIE", 1280, 720, false);
