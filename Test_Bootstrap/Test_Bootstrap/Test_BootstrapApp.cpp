@@ -20,14 +20,16 @@ bool bootstrapTestApp::startup() {
 	
 	srand(time(NULL));
 
+	m_timer = 0;
+
 	m_2dRenderer = new aie::Renderer2D();
 
 	// TODO: remember to change this when redistributing a build!
 	// the following path would be used instead: "./font/consolas.ttf"
 	m_font = new aie::Font("../bin/font/consolas.ttf", 18);
 
-	m_player = new Player(new glm::vec2(100, 200));
-	m_bullet = new Bullet(new glm::vec2(150, 250));
+	m_player = new Player(new glm::vec2(640, 340));
+	m_bullet = new Bullet(new glm::vec2(640, 390));
 	m_enemies = new Enemies(new glm::vec2(rand() % 1280, 720));
 	return true;
 }
@@ -43,12 +45,14 @@ void bootstrapTestApp::shutdown() {
 
 void bootstrapTestApp::update(float deltaTime) {
 
+	m_timer += deltaTime;
 	// input example
 	aie::Input* input = aie::Input::getInstance();
 
 	m_player->Update(deltaTime, input);
 	m_bullet->Update(deltaTime, input);
 	m_enemies->Update(deltaTime);
+
 
 	// exit the application
 	if (input->isKeyDown(aie::INPUT_KEY_ESCAPE))
@@ -58,7 +62,7 @@ void bootstrapTestApp::update(float deltaTime) {
 }
 
 void bootstrapTestApp::draw() {
-
+	
 	// wipe the screen to the background colour
 	clearScreen();
 

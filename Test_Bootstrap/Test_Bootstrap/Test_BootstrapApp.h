@@ -24,6 +24,7 @@ protected:
 
 	aie::Renderer2D*	m_2dRenderer;
 	aie::Font*			m_font;
+	int					m_timer;
 	Player*				m_player;
 	Bullet*				m_bullet;
 	Enemies*			m_enemies;

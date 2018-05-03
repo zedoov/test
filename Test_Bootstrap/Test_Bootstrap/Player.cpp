@@ -1,7 +1,5 @@
 #include "Player.h"
-//#include <Renderer2D.h>
-//#include <Texture.h>
-//#include <Input.h>
+
 
 Player::Player()
 {

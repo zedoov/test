@@ -1,7 +1,6 @@
 #include "Enemies.h"
 
 
-
 Enemies::Enemies()
 {
 }
@@ -24,5 +23,5 @@ void Enemies::Update(float deltaTime)
 
 void Enemies::Draw(aie::Renderer2D * spriteBatch)
 {
-	spriteBatch->drawSprite(m_texture, m_pos->x, m_pos->y, 40, 50);
+	spriteBatch->drawSprite(m_texture, m_pos->x, m_pos->y, 35, 45);
 }

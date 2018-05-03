@@ -1,8 +1,6 @@
 #include "Bullet.h"
 #include "Player.h"
 
-
-
 Bullet::Bullet()
 {
 }
