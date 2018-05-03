@@ -52,7 +52,7 @@ void bootstrapTestApp::update(float deltaTime) {
 	m_player->Update(deltaTime, input);
 	m_bullet->Update(deltaTime, input);
 	m_enemies->Update(deltaTime);
-
+	
 
 	// exit the application
 	if (input->isKeyDown(aie::INPUT_KEY_ESCAPE))
