@@ -163,12 +163,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="Enemies.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Test_BootstrapApp.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bullet.h" />
+    <ClInclude Include="Enemies.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Test_BootstrapApp.h" />
   </ItemGroup>

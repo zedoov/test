@@ -2,22 +2,23 @@
 #include <glm\vec2.hpp>
 #include <Renderer2D.h>
 #include <Texture.h>
-#include <Input.h>
+
+
 
 namespace aie {
 	class Texture;
 	class Renderer2D;
-	class Input;
+
 }
 
-class Player
+class Enemies
 {
 public:
-	Player();
-	Player(glm::vec2* pos);
-	~Player();
+	Enemies();
+	Enemies(glm::vec2* pos);
+	~Enemies();
 
-	void Update(float deltaTime, aie::Input* input);
+	void Update(float deltaTime);
 	void Draw(aie::Renderer2D* spriteBatch);
 
 
