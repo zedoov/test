@@ -22,7 +22,7 @@ public:
 
 
 private:
-	glm::vec2* m_pos;
+	glm::vec2* m_BullPos;
 	aie::Texture* m_texture;
 };
 

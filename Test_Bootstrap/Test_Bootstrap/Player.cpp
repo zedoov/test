@@ -38,23 +38,28 @@ void Player::Update(float deltaTime, aie::Input* input)
 
 	if (input->isKeyDown(aie::INPUT_KEY_A) && input->wasKeyPressed(aie::INPUT_KEY_SPACE))
 	{
-		m_pos->x -= 5000.0f * deltaTime;
+		m_pos->x -= 6000.0f * deltaTime;
 	}
 	if (input->isKeyDown(aie::INPUT_KEY_D) && input->wasKeyPressed(aie::INPUT_KEY_SPACE))
 	{
-		m_pos->x += 5000.0f * deltaTime;
+		m_pos->x += 6000.0f * deltaTime;
 	}
 	if (input->isKeyDown(aie::INPUT_KEY_W) && input->wasKeyPressed(aie::INPUT_KEY_SPACE))
 	{
-		m_pos->y += 5000.0f * deltaTime;
+		m_pos->y += 6000.0f * deltaTime;
 	}
 	if (input->isKeyDown(aie::INPUT_KEY_S) && input->wasKeyPressed(aie::INPUT_KEY_SPACE))
 	{
-		m_pos->y -= 5000.0f * deltaTime;
+		m_pos->y -= 6000.0f * deltaTime;
 	}
 }
 
 void Player::Draw(aie::Renderer2D * spriteBatch)
 {
 	spriteBatch->drawSprite(m_texture, m_pos->x, m_pos->y, 60, 80);
+}
+
+glm::vec2 * Player::GetPos()
+{
+	return m_pos;
 }

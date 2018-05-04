@@ -2,7 +2,7 @@
 
 #include "Application.h"
 #include "Renderer2D.h"
-
+#include <vector>
 class Player;
 class Bullet;
 class Enemies;
@@ -27,5 +27,5 @@ protected:
 	int					m_timer;
 	Player*				m_player;
 	Bullet*				m_bullet;
-	Enemies*			m_enemies;
+	std::vector<Enemies*> m_enemies;
 };
