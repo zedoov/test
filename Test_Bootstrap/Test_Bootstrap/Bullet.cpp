@@ -40,3 +40,8 @@ void Bullet::Draw(aie::Renderer2D * spriteBatch)
 {
 	spriteBatch->drawSprite(m_texture, m_BullPos->x, m_BullPos->y, 15, 15);
 }
+
+glm::vec2 * Bullet::GetPos()
+{
+	return m_BullPos;
+}

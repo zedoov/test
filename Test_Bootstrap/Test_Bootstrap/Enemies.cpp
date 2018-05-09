@@ -1,5 +1,6 @@
 #include "Enemies.h"
-
+#include <ctime>
+#include <stdlib.h>
 
 Enemies::Enemies()
 {
@@ -18,6 +19,7 @@ Enemies::~Enemies()
 
 void Enemies::Update(float deltaTime)
 {
+
 	m_EnPos->y -= 100.0f * deltaTime;
 }
 

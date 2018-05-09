@@ -20,6 +20,7 @@ public:
 	void Update(float deltaTime, aie::Input* input);
 	void Draw(aie::Renderer2D* spriteBatch);
 
+	glm::vec2* GetPos();
 
 private:
 	glm::vec2* m_BullPos;

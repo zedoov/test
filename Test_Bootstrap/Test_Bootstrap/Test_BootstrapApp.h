@@ -28,4 +28,5 @@ protected:
 	Player*				m_player;
 	Bullet*				m_bullet;
 	std::vector<Enemies*> m_enemies;
+	bool playerDead;
 };
