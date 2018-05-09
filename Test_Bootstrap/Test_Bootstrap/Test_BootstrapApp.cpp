@@ -35,6 +35,7 @@ bool bootstrapTestApp::startup() {
 	m_bullet =	new Bullet(new glm::vec2(640, 390));
 	playerDead = false;
 	
+	//spawning enemies
 	for (int i = 0; i < 40; ++i)
 	{
 		m_enemies.push_back(new Enemies(new glm::vec2(rand() % 1280, rand() % 2000 + 720)));
@@ -78,11 +79,12 @@ void bootstrapTestApp::update(float deltaTime) {
 	}
 	m_bullet->Update(deltaTime, input);
 	
+	//when an enemy is within a specified distance between the player set the bool true
 	for (auto enemy : m_enemies)
 	{
 		float distX = enemy->GetPos()->x - m_player->GetPos()->x;
 		float distY = enemy->GetPos()->y - m_player->GetPos()->y;
-		if (distX < 20 && distY < 20 && distX > -20 && distY > -20)
+		if (distX < 30 && distY < 40 && distX > -30 && distY > -40)
 		{
 			playerDead = true;
 		}
@@ -93,7 +95,7 @@ void bootstrapTestApp::update(float deltaTime) {
 //	{
 //		float distX = enemy->GetPos()->x - m_bullet->GetPos()->x;
 //		float distY = enemy->GetPos()->y - m_bullet->GetPos()->y;
-//		if (distX < 6 && distY < 6 && distX > -6 && distY > -6)
+//		if (distX < 15 && distY < 15 && distX > -15 && distY > -15)
 //		{
 //			  ;
 //		}
@@ -122,7 +124,7 @@ void bootstrapTestApp::draw() {
 	m_2dRenderer->drawText(m_font, "Press ESC to quit", 5, 5);
 	m_2dRenderer->drawText(m_font, "WASD to move, space to blink, arrow keys to move the bullet", 5, 705);
 	
-	
+	//draws the player if he isnt dead
 	m_bullet->Draw(m_2dRenderer);
 	if (!playerDead)
 	{
