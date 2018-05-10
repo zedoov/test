@@ -9,6 +9,7 @@ Player::Player(glm::vec2 * pos)
 {
 	m_texture = new aie::Texture("../bin/textures/ship.png");
 	m_pos = pos;
+	m_health = 100;
 }
 
 Player::~Player()
@@ -57,6 +58,16 @@ void Player::Update(float deltaTime, aie::Input* input)
 void Player::Draw(aie::Renderer2D * spriteBatch)
 {
 	spriteBatch->drawSprite(m_texture, m_pos->x, m_pos->y, 60, 80);
+}
+
+void Player::SetHealth(int health)
+{
+	m_health = health;
+}
+
+int Player::GetHealth()
+{
+	return m_health;
 }
 
 glm::vec2 * Player::GetPos()

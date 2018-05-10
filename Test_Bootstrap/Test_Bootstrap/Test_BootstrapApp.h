@@ -22,9 +22,11 @@ public:
 
 protected:
 
+
 	aie::Renderer2D*	m_2dRenderer;
 	aie::Font*			m_font;
-	int					m_timer;
+	float				m_timer;
+	float				m_iFrames;
 	Player*				m_player;
 	Bullet*				m_bullet;
 	std::vector<Enemies*> m_enemies;

@@ -8,6 +8,7 @@
 #include <ctime>
 #include <stdlib.h>
 #include <iostream>
+#include <imgui.h>
 
 bootstrapTestApp::bootstrapTestApp() {
 
@@ -62,6 +63,7 @@ void bootstrapTestApp::shutdown() {
 void bootstrapTestApp::update(float deltaTime) {
 	
 	m_timer += deltaTime;
+	m_iFrames -= deltaTime;
 	// input example
 	aie::Input* input = aie::Input::getInstance();
 
@@ -86,10 +88,20 @@ void bootstrapTestApp::update(float deltaTime) {
 		float distY = enemy->GetPos()->y - m_player->GetPos()->y;
 		if (distX < 30 && distY < 40 && distX > -30 && distY > -40)
 		{
-			playerDead = true;
+			if (m_iFrames < 0)
+			{
+				m_player->SetHealth(m_player->GetHealth() - 10);
+				m_iFrames = 0.75f;
+			}
+
 		}
 	}
 
+
+	if (m_player->GetHealth() == 0)
+	{
+		playerDead = true;
+	}
 
 //	for (auto enemy : m_enemies)
 //	{
@@ -118,7 +130,9 @@ void bootstrapTestApp::draw() {
 	m_2dRenderer->begin();
 
 	// draw your stuff here!
-	
+	ImGui::Begin("test");
+	ImGui::Text("Heath: %i", m_player->GetHealth());
+	ImGui::End();
 
 	// output some text, uses the last used colour
 	m_2dRenderer->drawText(m_font, "Press ESC to quit", 5, 5);
@@ -129,6 +143,10 @@ void bootstrapTestApp::draw() {
 	if (!playerDead)
 	{
 		m_player->Draw(m_2dRenderer);
+	}
+	if (playerDead)
+	{
+		m_2dRenderer->drawText(m_font, "Game Over", 600, 360, 10);
 	}
 
 	for (auto enemy : m_enemies)

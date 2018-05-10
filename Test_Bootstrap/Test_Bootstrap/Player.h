@@ -20,10 +20,14 @@ public:
 	void Update(float deltaTime, aie::Input* input);
 	void Draw(aie::Renderer2D* spriteBatch);
 
+	void SetHealth(int health);
+	int GetHealth();
+
 	glm::vec2* GetPos();
 
 private:
 	glm::vec2* m_pos;
 	aie::Texture* m_texture;
+	int m_health;
 };
 
